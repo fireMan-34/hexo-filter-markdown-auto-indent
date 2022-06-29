@@ -1,5 +1,6 @@
-const IndentStyle = "text-indent:2em;"
-const IndentTag = '<span style="padding:0 1em;"></span>';
+const indentValue = hexo.config?.markdown?.indent || 2;
+const IndentStyle = `text-indent:${indentValue}em;`
+const IndentTag = `<span style="padding:0 ${indentValue / 2}em;"></span>`;
 
 const TagStyleAttrReg = /style=["'][^"']*["']/;
 const ListTagReg = /<[uo]l[^>]*>[\s\S]*?<\/[uo]l>/g;
@@ -8,7 +9,7 @@ const BrTagReg = /<br\/?>/g;
 
 const PTagHeadReg = /<p[^>]*>/;
 
-const autoIndent = data => {
+function autoIndent(data) {
     const { content } = data;
     let PTagArray = content.match(PTagReg);
     if (!PTagArray) return data;
