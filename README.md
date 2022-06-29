@@ -12,7 +12,7 @@ npm i hexo-filter-markdown-auto-indent
 
 # Hello,this is update content
 You can decide how many spaces to indent the text,and defualt indent is `2em`.
-
+In your `_config.yml`,add this to control it. 
 ```yaml
     markdown:
         indent: 2
