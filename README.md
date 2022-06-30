@@ -19,3 +19,12 @@ In your `_config.yml`,add this to control it.
 ```
 # something is about to local test.
 If you want to tast in local,and you use `npm link`,you must to add package name in `package.json` dev .Or not,nothing will happend.
+
+# similar plugin
+When I want to push hexo plugin ,I find [hexo-filter-text-autospace](https://github.com/Cerallin/hexo-filter-text-autospace)
+
+# Feature Work
+- [] A front-matter config can stop to filter
+- [] A injector make code be less.
+- [] Study `hexo-filter-text-autospace` how to work and what's the different.
+- [] If I have time,I will study indent and write style in more countrie.
