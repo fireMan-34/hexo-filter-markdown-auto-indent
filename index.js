@@ -1,7 +1,8 @@
 'use strict';
+const frontMatter = require('hexo-front-matter');
 
 const INDENT_VALUE = hexo.config?.markdown?.indent || 2;
-const INDENT_STYLE = `text-indent:${INDENT_VALUE}em;`
+// const INDENT_STYLE = `text-indent:${INDENT_VALUE}em;`
 
 const INDETN_TAG = `<span class="fireman-span-indent"></span>`
 
@@ -17,9 +18,13 @@ const BR_TAG_TEG = /<br\/?>/g;
 const P_TAG_HEAD_REG = /<p[^>]*>/;
 
 function autoIndent(data) {
-    const { content } = data;
+    const { content, raw } = data;
+
     let PTagArray = content.match(P_TAG_REG);
-    if (!PTagArray) return data;
+
+    let frontMatterObject = frontMatter.parse(raw);
+
+    if (!PTagArray || !frontMatterObject.auto_indent) return data;
 
     const ListTagHasPTagArray = content.match(LIST_TAG_REG)?.filter(ListTag => P_TAG_HEAD_REG.test(ListTag));
     if (ListTagHasPTagArray) {
@@ -41,10 +46,11 @@ function autoIndent(data) {
 
         return PTag.replace(PTagHead, newPTagHead).replace(BR_TAG_TEG, `<br>${INDETN_TAG}`);
     });
+
     data.content = transformPTagArray.reduce((content, transformPTag, i) => content.replace(PTagArray[i], transformPTag), content);
     return data;
 }
-function injectINDENT_STYLE(entry, value, to) {
+function injectIndentStyle(entry, value, to) {
     return `<style>
         .fireman-p-indent{
             text-indent:${INDENT_VALUE}em;
@@ -54,5 +60,6 @@ function injectINDENT_STYLE(entry, value, to) {
         }
     </style >`;
 }
+
 hexo.extend.filter.register('after_post_render', autoIndent, 2);
-hexo.extend.injector.register('head_end', injectINDENT_STYLE,);
+hexo.extend.injector.register('head_end', injectIndentStyle,);

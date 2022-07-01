@@ -45,11 +45,34 @@ This is my first time. It's settled for the time being.
 </p>
 ```
 
+## front-matter
+
+```markdown
+---
+ auto_indent: false
+---
+
+or
+
+;;;
+"auto_indent": false
+;;;
+
+```
 
 # Install
 ```bash
 npm i hexo-filter-markdown-auto-indent
 
+```
+# Test in Local
+```bash
+npm link hexo-filter-markdown-auto-indent
+```
+```json
+{
+    "dependencies":"hexo-filter-auto-indent"
+}
 ```
 
 # Hello,this is update content
@@ -66,7 +89,7 @@ If you want to tast in local,and you use `npm link`,you must to add package name
 When I want to push hexo plugin ,I find [hexo-filter-text-autospace](https://github.com/Cerallin/hexo-filter-text-autospace)
 
 # Feature Work
-- [ ] A front-matter config can stop to filter
-- [ ] A injector make code be less.
+- [x] A front-matter config can stop to filter
+- [x] A injector make code be less.
 - [ ] Study `hexo-filter-text-autospace` how to work and what's the different.
 - [ ] If I have time,I will study indent and write style in more countrie.
