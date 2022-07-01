@@ -11,6 +11,12 @@
     "url": "git+https://github.com/fireMan-34/hexo-filter-markdown-auto-indent.git"
   },
   "author": "fireMan-34",
+  "keywords": [
+    "hexo",
+    "hexo-plugin",
+    "hexo-filter-markdown-auto-indent",
+    "fireman-34"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/fireMan-34/hexo-filter-markdown-auto-indent/issues"
