@@ -2,36 +2,32 @@
  * @Description: 
  * @Author: fireMan34
  * @LastEditors: fireMan34
- * @Date: 2022-06-22 14:33:41
- * @LastEditTime: 2022-07-21 19:35:25
+ * @Date: 2022-07-21 19:15:55
+ * @LastEditTime: 2022-07-21 19:40:35
 -->
-# Unable to update temporarily
+# 暂停更新
 
-    Some fun work require me to finish,so I unable to update temporarily.
+    我现在需要去完成一些有趣的任务。
 
 # hexo-filter-markdown-auto-indent
+    这是我在hexo 关于 markdown 的自动缩进插件。它的工作很简单，或许我可以向`hexo markdown render`的作者提议，并且增加它的相关配置。这是我的第一次提交，
 
-    This is the auto indenting filter for my hexo markdown article. It works very simply. Maybe I need to submit a pull request to the markdown renderer, and determine whether it works through configuration. This is my first time. It's settled for the time being.
+# 它的工作
 
-# What does it do?
+向markdown所有不是列表标签下的文本标签添加缩进方式。
 
-    Add indent content that is not a p tag within a list element.
+# 它的工作前置
+如果你使用的是 `hexo-renderer-marked` 模块,你可以使用它处理文本.
 
-# Show
-If you use `hexo-renderer-marked` module,you can write this to handle.
-
-## Connected paragraphs
+## 关联段落
 
 ### 1
-
 ``` markdown
 This is the auto indenting filter for my hexo markdown article. It works very simply. 
 Maybe I need to submit a pull request to the markdown renderer, and determine whether it works through configuration. 
 This is my first time. It's settled for the time being.
 ```
-
 It will be renter to `html`:
-
 ```html
 <p style="text-indent:2em;">
 This is the auto indenting filter for my hexo markdown article. It works very simply. 
@@ -51,7 +47,6 @@ Maybe I need to submit a pull request to the markdown renderer, and determine wh
 This is my first time. It's settled for the time being.
 ```
 It will be renter to `html`:
-
 ```html
 <p style="text-indent:2em;">
 This is the auto indenting filter for my hexo markdown article. It works very simply. 
@@ -64,7 +59,8 @@ This is my first time. It's settled for the time being.
 </p>
 ```
 
-## front-matter
+## 支持文章头部的处理 front-matter
+取消自动缩进
 
 ```markdown
 ---
@@ -79,12 +75,12 @@ or
 
 ```
 
-# Install
+# 安装命令
 ```bash
 npm i hexo-filter-markdown-auto-indent
 
 ```
-# Test in Local
+# 目前的本地测试
 ```bash
 npm link hexo-filter-markdown-auto-indent
 ```
@@ -94,25 +90,22 @@ npm link hexo-filter-markdown-auto-indent
 }
 ```
 
-# Indent distance 
-
-You can decide how many spaces to indent the text,and defualt indent is `2em`.
-In your `_config.yml`,add this to control it. 
+# 缩进距离
+你可以自定义全局的自动缩进举起 `2em`.
+在你的 `_config.yml`,并且设置它. 
 
 ```yaml
     markdown:
         indent: 2
 ```
-# something is about to local test.
+# 关于本地测试
+    如果你使用包链接进行本地测试，请在package里显示的声明它，不然它不会工作。
 
-If you want to tast in local,and you use `npm link`,you must to add this package name in `package.json` dev .Or not,nothing will happend.
+# 相同的插件功能
+在我准备提交插件的时候 ,我才发现了原来也有一些和我近似的功能，如果你对我的工作不满，你可以尝试着这一款 [hexo-filter-text-autospace](https://github.com/Cerallin/hexo-filter-text-autospace)
 
-# similar plugin
-
-When I want to push hexo plugin ,I find [hexo-filter-text-autospace](https://github.com/Cerallin/hexo-filter-text-autospace)
-
-# Feature Work
-- [x] A front-matter config can stop to filter
-- [x] A injector make code be less.
-- [ ] Study `hexo-filter-text-autospace` how to work and what's the different.
-- [ ] If I have time,I will study indent and write style in more countrie.
+# 未来的任务
+- [x] front-matter配置来设置禁止文章自动缩进
+- [x] 尝试通过注入器减少代码量，其实没什么变化，但我不知道是否性能会更优。
+- [ ] 学习有关 `hexo-filter-text-autospace` 插件如何工作，并比较我们开发的方式差异.
+- [ ] 如果我有时间，我也会学习更多国家的缩进语法。如果你有好的想法，在我的GitHub留下issue.

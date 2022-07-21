@@ -1,6 +1,6 @@
 {
   "name": "hexo-filter-markdown-auto-indent",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "this is hexo markdown post filter,and it can auto to add indent style to p tag.",
   "main": "index.js",
   "scripts": {
