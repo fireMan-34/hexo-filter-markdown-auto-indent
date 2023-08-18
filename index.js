@@ -24,8 +24,8 @@ function autoIndent(data) {
 
     let frontMatterObject = frontMatter.parse(raw);
 
-    if (!PTagArray || !frontMatterObject.auto_indent) return data;
-
+    if (!PTagArray || frontMatterObject.auto_indent === false) return data;
+    
     const ListTagHasPTagArray = content.match(LIST_TAG_REG)?.filter(ListTag => P_TAG_HEAD_REG.test(ListTag));
     if (ListTagHasPTagArray) {
         PTagArray = PTagArray.filter(PTag => !ListTagHasPTagArray.some(ListTag => ListTag.includes(PTag)));
