@@ -28,3 +28,8 @@ ci:auto publish by github actions
 - 1.2.2 version
 data:2022-07-01
 docs:be beauty docs and add Chinese README.md
+
+- 1.3.0 version
+data: 2023-08-18
+fix: front-matter attributes should be default
+ci: rollup to build package
